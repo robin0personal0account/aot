@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Only for Mahi - Attack on Titan</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+        .container {
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        h1 {
+            font-size: 3em;
+            color: #ff6f61;
+            text-shadow: 2px 2px #000;
+        }
+        p {
+            font-size: 1.2em;
+            margin: 20px 0;
+        }
+        .gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .gallery img {
+            width: 100%;
+            max-width: 200px;
+            border-radius: 10px;
+            transition: transform 0.5s, box-shadow 0.5s;
+        }
+        .gallery img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 111, 97, 0.7);
+        }
+        /* Flame Animation */
+        .flames {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30%;
+            background: url('flames.gif') repeat-x bottom;
+            background-size: cover;
+            z-index: -2;
+            animation: flames 4s infinite alternate ease-in-out;
+        }
+        /* Sparks Animation */
+        .sparks {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        .spark {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            animation: spark-movement 5s linear infinite;
+        }
+        @keyframes flames {
+            0% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+        @keyframes spark-movement {
+            0% { transform: translateY(100vh) scale(0.5); }
+            100% { transform: translateY(-100vh) scale(1.5); }
+        }
+    </style>
+</head>
+<body>
+    <div class="flames"></div>
+    <div class="sparks"></div>
+
+    <div class="container">
+        <h1>Only for Mahi</h1>
+        <p>Welcome to your mahi 😁😁 Attack on Titan fan </p>
+        <div class="gallery">
+            <img src="images3/20ef2d82-94e1-402a-bb3b-57b0de59d185.jpg" alt="Attack on Titan 1">
+            <img src="images3/2_4.jpg" alt="Attack on Titan 2">
+            <img src="images3/Eremika.jpg" alt="Attack on Titan 3">
+            <img src="images3/Eren Jeager.jpg" alt="Attack on Titan 4">
+            <img src="images3/Eren attack on titan.jpg" alt="Attack on Titan 5">
+        </div>
+    </div>
+    
+    <script>
+        // Generate spark elements dynamically
+        for (let i = 0; i < 50; i++) {
+            let spark = document.createElement('div');
+            spark.className = 'spark';
+            spark.style.width = Math.random() * 5 + 'px';
+            spark.style.height = spark.style.width;
+            spark.style.left = Math.random() * 100 + 'vw';
+            spark.style.animationDuration = Math.random() * 5 + 3 + 's';
+            document.querySelector('.sparks').appendChild(spark);
+        }
+    </script>
+</body>
+</html>
